@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class EmployeeDriver {
 	public static List<Employee> filterEmployee(List<Employee> list, Predicate<Employee> p) {
@@ -33,7 +34,11 @@ public class EmployeeDriver {
 		for (String name : listOfNames) {
 			System.out.println(name);
 		}
+	}
 
+	public static Employee getEmployee(Supplier<Employee> s) {
+		Employee emp = s.get();
+		return emp;
 	}
 
 	public static void main(String[] args) {
@@ -51,6 +56,9 @@ public class EmployeeDriver {
 		List<String> lastNameOfEmployees = getNames(employees, (Employee e) -> e.getFName());
 		System.out.println("First Name of all employees : ");
 		displayFirstNames(lastNameOfEmployees);
+
+		Employee newEmp = getEmployee(() -> new Employee("Kanika", "Sharma", 36, "Developer"));
+		System.out.println("New Employee : " + newEmp);
 
 	}
 
