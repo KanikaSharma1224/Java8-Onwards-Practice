@@ -49,7 +49,7 @@ public class EmployeeDriver {
 		employees.add(new Employee("Marshal", "Maria", 38, "Leiutent"));
 		employees.add(new Employee("David", "Angel", 40, "Captain"));
 
-		List<Employee> belowAge = filterEmployee(employees, (Employee e) -> e.getAge() < 38);
+		List<Employee> belowAge = filterEmployee(employees, e -> e.getAge() < 38);
 		System.out.println("Below Age Employees : ");
 		display(belowAge);
 
